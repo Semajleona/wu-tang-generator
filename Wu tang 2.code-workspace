@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../wuTang"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Wu tang 2"
+	}
+}
