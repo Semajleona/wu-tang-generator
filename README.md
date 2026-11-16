@@ -1,96 +1,83 @@
-🎤 Wu-Tang Name Generator
+<img width="1411" height="675" alt="Screenshot 2026-11-16 at 9 26 38 AM" src="https://github.com/user-attachments/assets/7a22e0d2-8bd9-4c3a-a0ca-e1487db3973a" />
 
-Project Description
+https://wu-tang-generator-mw1q.onrender.com
 
-The Wu-Tang Name Generator is an interactive web application that creates a Wu-Tang-inspired name based on the user's answers to five questions.
+# 🎤 Wu-Tang Name Generator
 
-The user selects an answer for each question, and the application uses those answers to randomly generate a unique Wu-Tang-style name.
+## 📌 Project Description
 
-🎲 How the Name Generator Works
+The Wu-Tang Name Generator is an interactive web application that creates a unique Wu-Tang-inspired name based on the user's answers to five questions. The application collects user selections and randomly combines two answers to generate a personalized name.
 
-The user answers five questions by selecting:
+## ✨ Features
 
-An alter ego
+- Interactive dropdown menus with five personality-based questions.
+- Generates a unique Wu-Tang-inspired name from user selections.
+- Uses JavaScript's `Math.random()` to randomly select two words.
+- Displays the generated name dynamically on the webpage.
+- Allows users to generate different names using their selected answers.
+- Communicates with a Node.js backend using the Fetch API.
 
-A color
+## 🛠️ Tech Stack
 
-A presence
+- **HTML5:** Structures the application, questions, dropdown menus, and buttons.
+- **CSS3:** Styles the interface using a black, yellow, and white color scheme.
+- **JavaScript:** Handles user interactions, random name generation, and DOM manipulation.
+- **Node.js:** Runs the backend server and handles API requests.
+- **Fetch API:** Communicates between the frontend and backend.
+- **JSON:** Transfers user selections from the server to the frontend.
 
-A personality
+## 📚 What I Learned
 
-An animal
+Through this project, I gained hands-on experience with:
 
-The selected answers are stored and used to create the user's Wu-Tang name.
+- Working with HTML forms and dropdown menus.
+- Using JavaScript event listeners to respond to user interactions.
+- Storing and manipulating user selections using arrays.
+- Using `Math.random()` to generate random results.
+- Updating webpage content dynamically using DOM manipulation.
+- Sending requests to a Node.js server using `fetch()`.
+- Working with query parameters and JSON responses.
+- Connecting frontend functionality with backend server logic.
 
-JavaScript randomly selects two of the user's answers:
+## 💻 Installation
 
-One answer becomes the first name
+**1. Clone the repository**
 
-Another answer becomes the last name
+```bash
+git clone -b answer https://github.com/Semajleona/wu-tang-generator.git
+```
 
-The two randomly selected words are then combined and displayed on the webpage as the user's Wu-Tang name.
+**2. Navigate to the project folder**
 
-For example:
+```bash
+cd wu-tang-generator
+```
 
-User's answers: Killah, Black, Ghost, Rebel, Dragon
+**3. Install dependencies**
 
-Possible generated name: Ghost Dragon
+```bash
+npm install
+```
 
-Because the answers are selected randomly, the user can generate different names from their choices.
+**4. Start the server**
 
-🛠️ Tech Stack
+```bash
+node server.js
+```
 
-HTML
+**5. Open the application**
 
-HTML creates the structure of the application, including the five questions, dropdown menus, button, and area where the generated name is displayed.
+Visit the following URL in your browser:
 
-CSS
+http://localhost:8000
 
-CSS is used to style the application and control how the Wu-Tang Name Generator looks on the webpage.
+## 🎮 How to Use
 
-JavaScript
+1. Open the Wu-Tang Name Generator.
+2. Answer the five questions using the dropdown menus.
+3. Click the **My Wu-Tang Name** button.
+4. The application randomly selects two of your answers.
+5. Your Wu-Tang-inspired name appears on the screen.
+6. Click again to generate another name.
 
-JavaScript handles the main functionality of the application. It collects the user's answers, works with the selected values, randomly chooses words, and displays the generated name.
-
-Node.js
-
-Node.js is used to create the server for the application and handle requests between the frontend and backend.
-
-💡 Skills Practiced
-
-HTML forms and dropdown menus
-
-DOM manipulation
-
-Event listeners
-
-JavaScript arrays
-
-Math.random()
-
-Functions
-
-Fetch requests
-
-Query parameters
-
-JSON
-
-Basic Node.js server development
-
-Frontend and backend communication
-
-🚀 How to Use
-
-Answer all five questions.
-
-Click the "My Wu-Tang Name" button.
-
-The application randomly selects words from your answers.
-
-Your new Wu-Tang-inspired name is displayed on the screen.
-
-I completed the challenge: 5
-I feel good about my code: 5
-While still learning and understanding backend I think my code is clear and easy to follow the app is functional.<img width="1248" height="680" alt="WuTang2025_1248x680-9d02059e97 jpg" src="https://github.com/user-attachments/assets/3b875c6d-58a3-4cf6-946b-7e4e7a8cba7a" />
 
