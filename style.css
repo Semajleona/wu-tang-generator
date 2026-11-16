@@ -1,31 +1,181 @@
+
+/* GENERAL PAGE STYLING */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-weight: 900;
-    font-size: 25px;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+
+    background-color: #080808;
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: azure;
 }
 
-select {
-    width: 100px;
-}
-
-button {
-    background-color: black;
-    border: white 1px solid white;
-    margin-top: 20px;
-    font-size: 30px;
+/* MAIN TITLE */
+h1 {
+    color: #ffcc00;
+    font-size: 55px;
     font-weight: 900;
-    width: 300px;
-    height: 100px;
-    color: rgba(255, 204, 0, 0.948);
-    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0 0 25px;
+    text-align: center;
 }
 
+/* WU-TANG IMAGE */
+img {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    border: 3px solid #ffcc00;
+    border-radius: 12px;
+    margin: 0 auto 35px;
+    object-fit: cover;
+}
+
+/* QUESTIONS */
+.question {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+/* DROPDOWN MENUS */
+select {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    height: 55px;
+
+    margin: 0 auto;
+    padding: 10px 15px;
+
+    background-color: #ffffff;
+    color: #111111;
+
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+/* DROPDOWN FOCUS */
+select:focus {
+    outline: 3px solid #ffcc00;
+    outline-offset: 3px;
+}
+
+/* GENERATE BUTTON */
+button {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    min-height: 65px;
+
+    margin: 40px auto 20px;
+    padding: 15px;
+
+    background-color: #ffcc00;
+    color: #000000;
+
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+/* BUTTON HOVER EFFECT */
+button:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* BUTTON KEYBOARD FOCUS */
+button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+/* GENERATED WU-TANG NAME */
 h2 {
-    color: red;
-    font-size: 70px;
+    color: #ffcc00;
+    font-size: 48px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+
+    max-width: 700px;
+    margin: 25px auto;
+
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+@media screen and (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    img {
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+
+    select {
+        max-width: 100%;
+        font-size: 17px;
+    }
+
+    button {
+        max-width: 100%;
+        font-size: 19px;
+    }
+
+    h2 {
+        font-size: 34px;
+    }
 }
