@@ -1,10 +1,34 @@
 
-
 const http = require('http')
 const fs = require('fs')
+const path = require('path')
 const url = require('url')
 const querystring = require('querystring')
 const figlet = require('figlet')
+
+// HELPER FUNCTION TO SERVE FILES
+function serveFile(res, filePath, contentType) {
+
+    fs.readFile(filePath, function (err, data) {
+
+        if (err) {
+            console.log('File not found:', filePath)
+
+            res.writeHead(404, {
+                'Content-Type': 'text/plain'
+            })
+
+            res.end('File not found')
+            return
+        }
+
+        res.writeHead(200, {
+            'Content-Type': contentType
+        })
+
+        res.end(data)
+    })
+}
 
 // CREATE SERVER
 const server = http.createServer(function (req, res) {
@@ -20,17 +44,11 @@ const server = http.createServer(function (req, res) {
     // HOME PAGE
     if (page == '/') {
 
-        fs.readFile('index.html', function (err, data) {
-
-            if (err) {
-                res.writeHead(404)
-                res.end('HTML file not found')
-                return
-            }
-
-            res.writeHead(200, { 'Content-Type': 'text/html' })
-            res.end(data)
-        })
+        serveFile(
+            res,
+            path.join(__dirname, 'index.html'),
+            'text/html'
+        )
 
     }
 
@@ -49,14 +67,19 @@ const server = http.createServer(function (req, res) {
                     animal: params['animal']
                 }
 
-                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                })
+
                 res.end(JSON.stringify(objToJson))
                 return
             }
         }
 
-        // Handle missing or invalid selections
-        res.writeHead(400, { 'Content-Type': 'application/json' })
+        res.writeHead(400, {
+            'Content-Type': 'application/json'
+        })
+
         res.end(JSON.stringify({
             message: 'Please select a valid alter ego'
         }))
@@ -64,53 +87,48 @@ const server = http.createServer(function (req, res) {
     }
 
     // CSS FILE
-    else if (page == '/css/style.css' || page == '/style.css') {
+    else if (page == '/style.css' || page == '/css/style.css') {
 
-        fs.readFile('css/style.css', function (err, data) {
+        // First check the main project folder
+        const mainCSS = path.join(__dirname, 'style.css')
 
-            if (err) {
-                res.writeHead(404)
-                res.end('CSS file not found')
-                return
+        // Also check the css folder
+        const folderCSS = path.join(__dirname, 'css', 'style.css')
+
+        fs.access(mainCSS, fs.constants.F_OK, function (err) {
+
+            if (!err) {
+
+                serveFile(res, mainCSS, 'text/css')
+
+            } else {
+
+                serveFile(res, folderCSS, 'text/css')
+
             }
-
-            res.writeHead(200, { 'Content-Type': 'text/css' })
-            res.end(data)
         })
 
     }
 
-    // BACKGROUND / PAGE IMAGE
+    // WU-TANG IMAGE
     else if (page == '/WuTang2025_1248x680-9d02059e97.jpg.webp') {
 
-        fs.readFile('WuTang2025_1248x680-9d02059e97.jpg.webp', function (err, data) {
-
-            if (err) {
-                res.writeHead(404)
-                res.end('Image not found')
-                return
-            }
-
-            res.writeHead(200, { 'Content-Type': 'image/webp' })
-            res.end(data)
-        })
+        serveFile(
+            res,
+            path.join(__dirname, 'WuTang2025_1248x680-9d02059e97.jpg.webp'),
+            'image/webp'
+        )
 
     }
 
     // JAVASCRIPT FILE
     else if (page == '/main.js') {
 
-        fs.readFile('main.js', function (err, data) {
-
-            if (err) {
-                res.writeHead(404)
-                res.end('JavaScript file not found')
-                return
-            }
-
-            res.writeHead(200, { 'Content-Type': 'text/javascript' })
-            res.end(data)
-        })
+        serveFile(
+            res,
+            path.join(__dirname, 'main.js'),
+            'text/javascript'
+        )
 
     }
 
@@ -121,12 +139,19 @@ const server = http.createServer(function (req, res) {
 
             if (err) {
                 console.log('Something went wrong...')
-                res.writeHead(500)
+
+                res.writeHead(500, {
+                    'Content-Type': 'text/plain'
+                })
+
                 res.end('Server error')
                 return
             }
 
-            res.writeHead(404, { 'Content-Type': 'text/plain' })
+            res.writeHead(404, {
+                'Content-Type': 'text/plain'
+            })
+
             res.end(data)
         })
 
@@ -139,3 +164,4 @@ const PORT = process.env.PORT || 8000
 server.listen(PORT, '0.0.0.0', () => {
     console.log(`Wu-Tang Name Generator running on port ${PORT}`)
 })
+
